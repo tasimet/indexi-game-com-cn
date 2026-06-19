@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tasimet.github.io/indexi-game-com-cn/sitemap.xml

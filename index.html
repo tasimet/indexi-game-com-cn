@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 专题介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+            background: #f7f8fa;
+            color: #1e1e2a;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2.4rem 1.6rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* hero / 首页横幅 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.8rem 2.2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+            border-bottom: 1px solid #ececf0;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.6rem;
+            color: #191919;
+        }
+
+        .hero .sub {
+            color: #5e5e6b;
+            font-size: 1.1rem;
+            border-left: 4px solid #b0b7c3;
+            padding-left: 1rem;
+            margin-top: 0.2rem;
+        }
+
+        .tagline {
+            display: inline-block;
+            background: #eef0f4;
+            border-radius: 40px;
+            padding: 0.3rem 1rem;
+            font-size: 0.85rem;
+            color: #3c3c4a;
+            margin-top: 1rem;
+        }
+
+        /* 背景说明卡片 */
+        .background-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2rem;
+            margin-bottom: 2.4rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.01);
+            border: 1px solid #ededeff;
+        }
+
+        .background-card h2 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: #1a1a26;
+        }
+
+        .background-card p {
+            margin-bottom: 0.8rem;
+            color: #2c2c3a;
+        }
+
+        .background-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 三段式自然介绍 */
+        .intro-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            margin-bottom: 2.6rem;
+        }
+
+        .intro-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #ecedf0;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .intro-item:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .intro-item .item-number {
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: #9a9aaa;
+            margin-bottom: 0.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .intro-item h3 {
+            font-weight: 500;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #16161f;
+        }
+
+        .intro-item p {
+            color: #3b3b4d;
+        }
+
+        a {
+            color: #1e4b7a;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        a:hover {
+            border-bottom-color: #1e4b7a;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            margin-top: 1.2rem;
+            padding: 1.6rem 1.8rem;
+            background: #ffffff;
+            border-radius: 22px;
+            border: 1px solid #eaecef;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #2f2f3b;
+        }
+
+        .footer-note a {
+            font-weight: 500;
+        }
+
+        .footer-note .light {
+            color: #7b7b8b;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #dedfe6;
+            margin: 1.4rem 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 480px) {
+            .page {
+                padding: 1.6rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero, .background-card, .intro-item, .footer-note {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+            .intro-item {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 800px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        /* 点缀 */
+        .soft-meta {
+            color: #8e8e9e;
+            font-size: 0.8rem;
+            display: block;
+            margin-top: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 首页横幅 hero -->
+    <div class="hero">
+        <h1>爱游戏 · 稳定入口</h1>
+        <div class="sub">从一处安静的页面向你推荐</div>
+        <div class="tagline">游戏 · 日常 · 轻入口</div>
+        <span class="soft-meta">专题杂志式 · 2025</span>
+    </div>
+
+    <!-- 背景说明 -->
+    <div class="background-card">
+        <h2>为什么需要一处稳定的页面</h2>
+        <p>
+            日常寻找游戏信息时，常常面对零散的链接和频繁变更的地址。一个固定的、说明清晰的站点入口，能帮人省去反复搜索的精力。
+        </p>
+        <p>
+            <a href="https://indexi-game.com.cn">爱游戏</a> 所扮演的角色，正是这样一个安静的起点。它不制造喧嚣，只提供通往游戏内容的路径和相对清晰的结构，让你在需要时随手可及。
+        </p>
+        <p>
+            无论你是偶然路过，还是定期回来，这个页面始终以相同的节奏等你。没有弹窗干扰，没有多余的诱导。
+        </p>
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <div class="intro-grid">
+        <div class="intro-item">
+            <div class="item-number">/ 01</div>
+            <h3>入口即页面</h3>
+            <p>
+                打开站点，看到的就是经过整理的呈现。不必点进二级菜单寻找说明，首页本身已经承载了基本的指引。
+                对 <a href="https://indexi-game.com.cn">爱游戏</a> 而言，页面就是最好的名片。
+            </p>
+        </div>
+
+        <div class="intro-item">
+            <div class="item-number">/ 02</div>
+            <h3>内容以实用为先</h3>
+            <p>
+                游戏相关的兴趣点很多，但这里更看重「能帮上忙」。无论是发现新游戏、回顾经典，还是了解社区动态，
+                页面都会提供直接的跳转和上下文，而不是堆满无关紧要的装饰。
+            </p>
+        </div>
+
+        <div class="intro-item">
+            <div class="item-number">/ 03</div>
+            <h3>每次访问都轻巧</h3>
+            <p>
+                设计上留出呼吸空间，文字和链接的间距都经过调试。即便在手机小屏上，也不会有拥挤或误触的感受。
+                你只需要滑动、阅读、点击 <a href="https://indexi-game.com.cn">爱游戏</a>，不必在复杂布局中找路。
+            </p>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 & FAQ 摘要 -->
+    <div class="footer-note">
+        <p>
+            如果你希望有一个可长期停留、快速触达游戏内容的页面，不妨把 <a href="https://indexi-game.com.cn">爱游戏</a> 加入书签。
+        </p>
+        <div class="light">常见问题摘要：页面无广告、不追踪、仅作索引介绍。</div>
+        <hr>
+        <div style="margin-top:0.2rem; color:#4d4d5e;">
+            <span style="font-weight: 450;">「爱游戏」</span>  —— 一个入口，仅此而已。
+        </div>
+    </div>
+</div>
+</body>
+</html>
