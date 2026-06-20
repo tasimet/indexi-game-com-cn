@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一竞技 · 持续关注的产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: #1e293b;
+            background: #f8fafc;
+        }
+        .hero {
+            background: #0b1120;
+            background-image: radial-gradient(circle at 20% 30%, #1e2a4a 0%, #0b1120 80%);
+            color: #e2e8f0;
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+        }
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            max-width: 640px;
+            margin: 0 auto 1.2rem;
+            font-weight: 400;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #2563eb;
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.2rem 0.9rem;
+            border-radius: 20px;
+            letter-spacing: 0.02em;
+        }
+        .content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 3rem 1.8rem 4rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0f172a;
+            border-left: 4px solid #2563eb;
+            padding-left: 1rem;
+            margin: 2.2rem 0 1.2rem;
+        }
+        .summary {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem 2rem 1.8rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            margin-bottom: 2rem;
+        }
+        .summary p {
+            margin-bottom: 1rem;
+        }
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0 1.8rem;
+        }
+        .highlight-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.6rem 1.5rem;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.03);
+            border: 1px solid #e9edf2;
+            transition: box-shadow 0.2s;
+        }
+        .highlight-card:hover {
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
+        .highlight-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+        .highlight-card p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+        .use-scenario {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem 2rem 1.6rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            margin: 1.8rem 0 2rem;
+        }
+        .use-scenario ul {
+            list-style: none;
+            padding: 0;
+        }
+        .use-scenario li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f1f4f8;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+        .use-scenario li:last-child {
+            border-bottom: none;
+        }
+        .use-scenario li::before {
+            content: "→";
+            color: #2563eb;
+            font-weight: 500;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        .note {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0 1.5rem;
+            border-left: 5px solid #475569;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.8rem 2rem 1.5rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            margin: 2rem 0 1rem;
+        }
+        .faq-mini dt {
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 1.1rem;
+            font-size: 1rem;
+        }
+        .faq-mini dt:first-child {
+            margin-top: 0;
+        }
+        .faq-mini dd {
+            margin-left: 0;
+            margin-top: 0.25rem;
+            color: #475569;
+            font-size: 0.95rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #f1f4f8;
+        }
+        .faq-mini dd:last-of-type {
+            border-bottom: none;
+        }
+        .link-embed {
+            color: #2563eb;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+        .link-embed:hover {
+            border-bottom-color: #2563eb;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 3.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .tagline {
+                font-size: 1rem;
+            }
+            .highlight-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .content {
+                padding: 2rem 1.2rem 3rem;
+            }
+            .summary, .use-scenario, .faq-mini, .note {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>一竞技</h1>
+    <p class="tagline">产品说明 · 持续关注与再次访问的实用参考</p>
+    <span class="badge">产品导向 · 简洁专业</span>
+</section>
+
+<div class="content">
+
+    <!-- 摘要 -->
+    <div class="summary">
+        <p>如果你曾经浏览过 <a href="https://sport-yijinji.com" class="link-embed">一竞技</a> 并希望保持对它的了解，这份说明可以帮助你快速回顾产品定位与核心场景。本页面从再次访问、收藏及长期关注的角度出发，提供克制但完整的信息框架，不夸大，不诱导。</p>
+        <p>一竞技并非单一功能工具，而是一个围绕竞技内容持续演进的站点。对于希望定期回顾动态、理解产品边界的用户，以下摘要与亮点可作为参考锚点。</p>
+    </div>
+
+    <!-- 亮点 -->
+    <h2 class="section-title">产品亮点</h2>
+    <div class="highlight-grid">
+        <div class="highlight-card">
+            <h3>信息结构清晰</h3>
+            <p>页面布局注重阅读节奏，重要内容置于视觉重心，减少冗余导航干扰，适合快速获取关键陈述。</p>
+        </div>
+        <div class="highlight-card">
+            <h3>竞技内容聚焦</h3>
+            <p>围绕竞技主题提供相对集中、克制的信息输出，不堆砌无关板块，保持领域专注度。</p>
+        </div>
+        <div class="highlight-card">
+            <h3>更新可预期</h3>
+            <p>内容迭代有迹可循，并非一次性发布。对于长期关注者而言，定期回访可发现新增或调整的说明区域。</p>
+        </div>
+        <div class="highlight-card">
+            <h3>低干扰浏览</h3>
+            <p>不采用弹出式强引导或过度动效，页面交互以信息获取为核心，降低视觉疲劳。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议（场景化） -->
+    <h2 class="section-title">使用建议 · 哪些场景适合回访</h2>
+    <div class="use-scenario">
+        <ul>
+            <li><strong>定期了解竞技相关更新：</strong>如果你习惯每两周或每月梳理某个竞技领域的新动态，可将一竞技加入收藏夹，作为信息源之一。</li>
+            <li><strong>对比产品说明变化：</strong>留意页面中产品描述、亮点或 FAQ 的措辞调整，这些变化往往反映服务或内容的迭代方向。</li>
+            <li><strong>轻量调研参考：</strong>对于从事竞技产品或内容运营的人，页面结构本身可作为竞品或同类站点信息组织的参照。</li>
+            <li><strong>无压力浏览：</strong>不需要注册或登录即可阅读全部内容，适合只想安静了解、不被打扰的用户。</li>
+        </ul>
+    </div>
+
+    <!-- 可信但克制的说明 -->
+    <div class="note">
+        <strong>说明：</strong>本页面所涉及的产品描述均基于公开可验证的信息框架，不包含任何未实现的功能承诺或绝对化表述。一竞技的内容边界由其自身更新节奏决定，建议用户基于自身需求判断是否持续关注。收藏或再次访问前，可先确认页面版本是否符合预期。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2 class="section-title">常见疑问摘要</h2>
+    <dl class="faq-mini">
+        <dt>一竞技是否要求注册才能浏览主要信息？</dt>
+        <dd>不需要。目前公开页面内容无需登录或注册即可完整阅读。</dd>
+        <dt>页面信息多久更新一次？</dt>
+        <dd>未设定固定周期。但从产品说明页的性质来看，当服务或内容有实质调整时，会同步更新。建议以实际页面日期为准。</dd>
+        <dt>如何确认我访问的是最新版本？</dt>
+        <dd>可以通过对比页面底部的版本标识或内容区描述是否与上次访问一致。你也可以通过 <a href="https://sport-yijinji.com" class="link-embed">一竞技</a> 直接进入首页，查看是否有新的公告内容。</dd>
+        <dt>这个介绍页与主站是什么关系？</dt>
+        <dd>此页面属于独立产品说明页，用于帮助用户快速建立认知框架，并非主站首页的替代。主站内容更丰富，建议结合使用。</dd>
+    </dl>
+
+    <!-- 尾注 -->
+    <div class="footer-note">
+        <p>产品说明页 · 仅供信息参考 · 无诱导性表述</p>
+        <p style="margin-top:0.3rem;">页面内容基于公开信息整理 · 以实际站点为准</p>
+    </div>
+
+</div>
+
+</body>
+</html>
