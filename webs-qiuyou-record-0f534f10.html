@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球友直播 · 信息卡片页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9fafb;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            color: #1e293b;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.5rem 1.25rem;
+        }
+
+        .page {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* ---------- 主视觉 ---------- */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.2rem 2.2rem 2.6rem;
+            margin-bottom: 2.4rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 6px 20px rgba(0, 0, 0, 0.03);
+            text-align: center;
+        }
+
+        .hero-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            background: #eef2ff;
+            border-radius: 20px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: #4f46e5;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #0f172a;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #64748b;
+            max-width: 480px;
+            margin: 0 auto 1.2rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #334155;
+            letter-spacing: 0.02em;
+        }
+
+        /* ---------- 卡片通用 ---------- */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-title .badge {
+            font-size: 0.7rem;
+            font-weight: 500;
+            background: #e2e8f0;
+            color: #475569;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            letter-spacing: 0.03em;
+        }
+
+        .card p {
+            margin-bottom: 0.85rem;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ---------- 用途卡片网格 ---------- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .use-item {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            border: 1px solid #f1f5f9;
+        }
+
+        .use-item .title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #0f172a;
+            margin-bottom: 0.2rem;
+        }
+
+        .use-item .desc {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* ---------- 适合人群 ---------- */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            background: #eff6ff;
+            color: #1e40af;
+            font-size: 0.82rem;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            border: 1px solid #dbeafe;
+            font-weight: 500;
+        }
+
+        .tag-alt {
+            background: #fefce8;
+            color: #a16207;
+            border-color: #fef9c3;
+        }
+
+        .tag-alt2 {
+            background: #f0fdf4;
+            color: #15803d;
+            border-color: #dcfce7;
+        }
+
+        /* ---------- 自然链接段落 ---------- */
+        .link-sentence {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.02);
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .link-sentence a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px solid #bfdbfe;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .link-sentence a:hover {
+            color: #1d4ed8;
+            border-bottom-color: #1d4ed8;
+        }
+
+        /* ---------- FAQ 摘要 ---------- */
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #0f172a;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            font-size: 0.88rem;
+            color: #475569;
+            padding-left: 0.2rem;
+        }
+
+        /* ---------- 页脚 ---------- */
+        .footer-note {
+            text-align: center;
+            padding: 2rem 0 0.5rem;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 0.5rem;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 540px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .hero {
+                padding: 1.6rem 1.2rem 2rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .link-sentence {
+                padding: 1.4rem 1.2rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- 主视觉 -->
+        <div class="hero">
+            <div class="hero-icon">
+                <svg viewBox="0 0 32 32">
+                    <circle cx="16" cy="16" r="6" />
+                    <path d="M5 16a11 11 0 0 1 22 0" />
+                    <path d="M8 16a8 8 0 0 1 16 0" />
+                </svg>
+            </div>
+            <h1>球友直播</h1>
+            <p class="sub">围绕赛事直播与运动内容，提供信息对照、延伸阅读与日常查询的辅助页面</p>
+            <span class="tagline">信息卡片式 · 极简留白</span>
+        </div>
+
+        <!-- 用途卡片 -->
+        <div class="card">
+            <div class="card-title">
+                <span>日常用途</span>
+                <span class="badge">对照 · 查询 · 延伸</span>
+            </div>
+            <div class="grid-2">
+                <div class="use-item">
+                    <div class="title">📋 赛程对照</div>
+                    <div class="desc">快速核验近期热门场次、时间与对阵，避免信息混淆</div>
+                </div>
+                <div class="use-item">
+                    <div class="title">📎 资料延伸</div>
+                    <div class="desc">从直播页面跳转至相关统计、回放或选手背景阅读</div>
+                </div>
+                <div class="use-item">
+                    <div class="title">🔍 关键词查询</div>
+                    <div class="desc">输入联赛、队伍或球员名称，获得精炼摘要</div>
+                </div>
+                <div class="use-item">
+                    <div class="title">📌 收藏对照</div>
+                    <div class="desc">保存常用直播入口，方便下次直接对照查看</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 适合人群 -->
+        <div class="card">
+            <div class="card-title">
+                <span>适合人群</span>
+                <span class="badge">信息型使用者</span>
+            </div>
+            <p>以下类型的访问者可能会发现这里的内容结构适合日常使用：</p>
+            <div class="tag-list">
+                <span class="tag">赛事爱好者</span>
+                <span class="tag tag-alt">资料整理型用户</span>
+                <span class="tag tag-alt2">多平台对照者</span>
+                <span class="tag">延伸阅读需求者</span>
+                <span class="tag tag-alt">直播信息核对者</span>
+                <span class="tag tag-alt2">轻量查询用户</span>
+            </div>
+        </div>
+
+        <!-- 自然链接段落（嵌入球友直播链接） -->
+        <div class="link-sentence">
+            <p>对于需要快速核对直播场次、查看历史对阵或了解相关运动背景的访问者，<a href="https://webs-qiuyou.com">球友直播</a>提供了一条直接对照的途径。你可以将当前页面作为信息索引，再根据实际需求跳转至对应直播模块，整体流程更清晰。</p>
+            <p>举个例子：当你在其他平台看到某场赛事预告，却不确定具体时间或参赛队伍时，可以回到这里作为起点，利用页面内的对照卡片先行确认，再通过链接进入直播界面。这种先查询、后观看的习惯，能减少反复切换标签页的麻烦。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="card">
+            <div class="card-title">
+                <span>常见疑问摘要</span>
+                <span class="badge">FAQ</span>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">这个页面的定位是什么？</div>
+                <div class="faq-a">它是一个信息卡片式的辅助页，侧重日常查询、对照和延伸阅读，本身不直接播放直播内容。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">如何使用“用途卡片”？</div>
+                <div class="faq-a">你可以根据当前需求（比如查赛程、找回放）选择对应卡片，卡片中的描述会提示你下一步可以做什么。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">链接会跳转到哪里？</div>
+                <div class="faq-a">页面中的链接指向 <a href="https://webs-qiuyou.com" style="color:#2563eb;text-decoration:none;border-bottom:1.5px solid #bfdbfe;">球友直播</a>，你可以通过那里获取完整的直播服务。</div>
+            </div>
+        </div>
+
+        <!-- 提示 -->
+        <div class="card" style="background:#f8fafc;border:1px solid #e2e8f0;">
+            <div class="card-title" style="font-size:1rem;">
+                <span>💡 使用提示</span>
+            </div>
+            <p>本页面内容经整理，保持克制与真实，不包含夸张承诺。所有链接均指向同一服务来源，建议你先熟悉卡片结构，再根据实际需求进行对照或跳转。</p>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer-note">
+            信息卡片页 · 仅供对照与延伸参考
+        </div>
+
+    </div>
+</body>
+</html>
